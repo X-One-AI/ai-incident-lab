@@ -1,0 +1,37 @@
+schema_version: ai-incident-lab.scenario.v1
+id: agent-pr-missing-verification
+order: 20
+title: Agent PR Missing Verification
+safety_level: safe-local
+summary: A static PR review scenario where an agent claims completion without test evidence or risk notes.
+incident_type: agent-pr-review
+objective: Teach reviewers to reject agent-generated PRs that lack test evidence and risk notes.
+setup:
+  - "Open the static PR summary fixture."
+  - "Do not call GitHub APIs or mutate a repository."
+steps:
+  - "Open `fixtures/agent-pr-missing-verification/pr-summary.md`."
+  - "Identify missing test evidence, missing rollback notes, and vague scope language."
+  - "Draft the minimum reviewer follow-up required before merge."
+expected_findings:
+  - id: missing-test-evidence
+    description: PR summary claims completion without showing a verification command or result.
+    evidence: fixtures/agent-pr-missing-verification/pr-summary.md
+  - id: missing-risk-summary
+    description: PR summary does not mention config, dependency, auth, or CI risk.
+    evidence: fixtures/agent-pr-missing-verification/pr-summary.md
+rule_mappings:
+  - tool: agent-pr-evidence
+    rule: verification-evidence-required
+  - tool: agent-pr-evidence
+    rule: risk-summary-required
+cleanup:
+  - "No generated files. Close the fixture after review."
+teaching_notes:
+  - "The scenario reinforces evidence-before-merge rather than agent distrust."
+  - "Reviewers should ask for concrete command output, not broad reassurance."
+limitations:
+  - "This lab uses a static PR summary fixture."
+  - "It does not call the GitHub API."
+redaction_notes:
+  - "The fixture uses synthetic file names and no private repository data."
