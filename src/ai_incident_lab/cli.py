@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import argparse
 import sys
+from importlib import resources
 from pathlib import Path
+from shutil import copytree
 from typing import Sequence
 
 from . import __version__
@@ -14,6 +16,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = _build_parser()
     args = parser.parse_args(argv)
     try:
+        if args.command == "init":
+            source = resources.files("ai_incident_lab").joinpath("scenario_pack")
+            copytree(source, args.output, dirs_exist_ok=args.force)
+            print(f"wrote {args.output}")
+            return 0
+
         if args.command == "list":
             for scenario in load_scenarios(args.scenarios):
                 print(f"{scenario['id']}\t{scenario['title']}\t{scenario['safety_level']}")
@@ -52,6 +60,10 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--version", action="version", version=f"ai-incident-lab {__version__}")
 
     subparsers = parser.add_subparsers(dest="command")
+
+    init = subparsers.add_parser("init", help="Write the bundled safe-local scenario pack.")
+    init.add_argument("--output", required=True, type=Path, help="Target scenario directory.")
+    init.add_argument("--force", action="store_true", help="Overwrite files in an existing directory.")
 
     list_cmd = subparsers.add_parser("list", help="List scenario ids and titles.")
     list_cmd.add_argument("--scenarios", required=True, type=Path, help="Scenario directory or YAML file.")

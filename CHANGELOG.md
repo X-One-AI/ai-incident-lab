@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+- Add `ai-incident-lab init` so installed users can generate the bundled scenario pack.
+- Include safe-local scenarios and fixture files inside wheel artifacts.
+- Improve first-run documentation for installed users.
+
 ## 0.1.0
 
 - Add the first safe-local incident scenario pack.

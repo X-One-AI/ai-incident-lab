@@ -51,15 +51,19 @@ def test_render_json_is_machine_readable():
 
 
 def test_cli_list_validate_and_render(tmp_path, capsys):
+    initialized = tmp_path / "scenarios"
     markdown = tmp_path / "runbook.md"
     json_output = tmp_path / "runbook.json"
 
+    init_exit = main(["init", "--output", str(initialized)])
     list_exit = main(["list", "--scenarios", str(SCENARIOS)])
     validate_exit = main(["validate", "--scenarios", str(SCENARIOS)])
     markdown_exit = main(["render", "--scenarios", str(SCENARIOS), "--format", "markdown", "--output", str(markdown)])
     json_exit = main(["render", "--scenarios", str(SCENARIOS), "--format", "json", "--output", str(json_output)])
 
     captured = capsys.readouterr()
+    assert init_exit == 0
+    assert load_scenarios(initialized)
     assert list_exit == 0
     assert "mcp-wide-filesystem-scope" in captured.out
     assert validate_exit == 0
@@ -79,4 +83,4 @@ def test_package_module_entrypoint_outputs_version():
         stdout=subprocess.PIPE,
     )
 
-    assert result.stdout.strip() == "ai-incident-lab 0.1.0"
+    assert result.stdout.strip() == "ai-incident-lab 0.2.0"

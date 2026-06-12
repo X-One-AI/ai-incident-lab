@@ -1,0 +1,5 @@
+2026-06-13T10:00:00Z tool=deploy-preview status=failed
+request_id=lab-example-001
+token=TOKEN_REDACTED_EXAMPLE
+message="Preview deployment failed before artifact upload."
+note="This is synthetic lab data. Do not replace with a real credential."

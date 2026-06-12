@@ -3,7 +3,7 @@
 ## Intake
 
 - Priority: P2
-- Status: v0.1.0 safe-local scenario CLI and first incident pack
+- Status: v0.2.0 safe-local scenario CLI with bundled init flow
 - Positioning: Runnable incident simulations for AI agents, MCP tools, and agent-generated code.
 - Primary route: Product -> Architecture -> Expert/Security -> QA -> Implementation -> Completion readiness
 
@@ -41,6 +41,7 @@ Create safe local workshops and regression scenarios that make Safe Agent Operat
 - Every risky claim links to evidence, rule logic, or an explicit limitation.
 - Scenarios use `ai-incident-lab.scenario.v1`.
 - `ai-incident-lab validate --scenarios scenarios` validates the bundled scenario pack.
+- `ai-incident-lab init --output ai-incident-scenarios` writes a bundled scenario pack for installed users.
 - `ai-incident-lab render` produces Markdown and JSON runbooks.
 - Scenario validation rejects secret-shaped placeholders, dangerous operations, and missing cleanup instructions.
 

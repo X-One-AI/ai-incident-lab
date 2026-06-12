@@ -18,6 +18,12 @@ ai-incident-lab validate --scenarios scenarios
 ai-incident-lab render --scenarios scenarios --format markdown --output ai-incident-runbook.md
 ```
 
+Installed users can generate the bundled pack first:
+
+```bash
+ai-incident-lab init --output ai-incident-scenarios
+```
+
 ## Scenario Contract
 
 Each scenario uses `ai-incident-lab.scenario.v1` and must include:

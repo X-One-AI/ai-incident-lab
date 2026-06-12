@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xone-ai-incident-lab"
-version = "0.1.0"
+version = "0.2.0"
 description = "Safe local incident simulations for AI agents, MCP tools, and agent-generated code."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -48,6 +48,9 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+ai_incident_lab = ["scenario_pack/**/*.yml", "scenario_pack/**/*.json", "scenario_pack/**/*.md", "scenario_pack/**/*.txt"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

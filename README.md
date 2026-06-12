@@ -6,7 +6,7 @@ Runnable incident simulations for AI agents, MCP tools, and agent-generated code
 
 ## Status
 
-`v0.1.0` - safe-local scenario CLI and first incident pack.
+`v0.2.0` - safe-local scenario CLI, bundled scenario pack, and first-run init flow.
 
 ## Purpose
 
@@ -18,10 +18,11 @@ Local-only incident scenarios mapped to X-One tools, expected findings, cleanup 
 
 ```bash
 python3 -m pip install xone-ai-incident-lab
-ai-incident-lab list --scenarios scenarios
-ai-incident-lab validate --scenarios scenarios
-ai-incident-lab render --scenarios scenarios --format markdown --output ai-incident-runbook.md
-ai-incident-lab render --scenarios scenarios --format json --output ai-incident-runbook.json
+ai-incident-lab init --output ai-incident-scenarios
+ai-incident-lab list --scenarios ai-incident-scenarios
+ai-incident-lab validate --scenarios ai-incident-scenarios
+ai-incident-lab render --scenarios ai-incident-scenarios --format markdown --output ai-incident-runbook.md
+ai-incident-lab render --scenarios ai-incident-scenarios --format json --output ai-incident-runbook.json
 ```
 
 For local development:
@@ -29,6 +30,7 @@ For local development:
 ```bash
 python3 -m pip install -e '.[dev]'
 python3 -m pytest tests -q
+ai-incident-lab validate --scenarios scenarios
 ```
 
 ## Required Evidence

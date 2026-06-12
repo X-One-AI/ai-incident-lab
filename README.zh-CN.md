@@ -6,7 +6,7 @@
 
 ## 状态
 
-`v0.1.0` - safe-local 场景 CLI 和第一批事故场景包。
+`v0.2.0` - safe-local 场景 CLI、内置场景包和首次使用 init 流程。
 
 ## 目的
 
@@ -18,10 +18,11 @@
 
 ```bash
 python3 -m pip install xone-ai-incident-lab
-ai-incident-lab list --scenarios scenarios
-ai-incident-lab validate --scenarios scenarios
-ai-incident-lab render --scenarios scenarios --format markdown --output ai-incident-runbook.md
-ai-incident-lab render --scenarios scenarios --format json --output ai-incident-runbook.json
+ai-incident-lab init --output ai-incident-scenarios
+ai-incident-lab list --scenarios ai-incident-scenarios
+ai-incident-lab validate --scenarios ai-incident-scenarios
+ai-incident-lab render --scenarios ai-incident-scenarios --format markdown --output ai-incident-runbook.md
+ai-incident-lab render --scenarios ai-incident-scenarios --format json --output ai-incident-runbook.json
 ```
 
 本地开发：
@@ -29,6 +30,7 @@ ai-incident-lab render --scenarios scenarios --format json --output ai-incident-
 ```bash
 python3 -m pip install -e '.[dev]'
 python3 -m pytest tests -q
+ai-incident-lab validate --scenarios scenarios
 ```
 
 ## 必要证据

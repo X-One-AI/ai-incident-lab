@@ -50,6 +50,8 @@ jobs:
         run: |
           set -euo pipefail
           ai-incident-lab --version
+          ai-incident-lab init --output /tmp/ai-incident-scenarios
+          ai-incident-lab validate --scenarios /tmp/ai-incident-scenarios
           ai-incident-lab list --scenarios scenarios
           ai-incident-lab validate --scenarios scenarios
           ai-incident-lab render --scenarios scenarios --format json --output /tmp/ai-incident-lab.json
