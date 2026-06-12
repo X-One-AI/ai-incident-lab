@@ -1,0 +1,32 @@
+schema_version: ai-incident-lab.scenario.v1
+id: mcp-wide-filesystem-scope
+order: 10
+title: MCP Wide Filesystem Scope
+safety_level: safe-local
+summary: A review scenario for an MCP filesystem server configured with a scope broader than the intended project path.
+incident_type: mcp-config-risk
+objective: Teach reviewers to identify over-broad filesystem MCP access without touching real user files.
+setup:
+  - "Read the fixture config before creating any local folder."
+  - "If a workshop needs a folder, create `/tmp/ai-incident-lab-wide-scope` only."
+steps:
+  - "Inspect the fixture config in `fixtures/mcp-wide-filesystem-scope/mcp.json`."
+  - "Confirm the filesystem server is pointed at `/tmp/ai-incident-lab-wide-scope`."
+  - "Compare that scope with the narrower expected project path in the teaching notes."
+expected_findings:
+  - id: wide-filesystem-scope
+    description: Filesystem MCP access is broader than the intended project-only review surface.
+    evidence: fixtures/mcp-wide-filesystem-scope/mcp.json
+rule_mappings:
+  - tool: mcp-audit
+    rule: filesystem-scope-review
+cleanup:
+  - "Delete `/tmp/ai-incident-lab-wide-scope` if you created it during a workshop."
+teaching_notes:
+  - "The scenario uses `/tmp`, not a real home directory or workspace root."
+  - "The lesson maps to MCP configuration review, not runtime sandbox enforcement."
+limitations:
+  - "This lab does not execute the MCP server."
+  - "It demonstrates review reasoning, not exploitability."
+redaction_notes:
+  - "The fixture contains no real user path or secret."
