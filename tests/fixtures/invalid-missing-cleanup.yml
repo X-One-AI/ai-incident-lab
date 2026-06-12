@@ -1,0 +1,26 @@
+schema_version: ai-incident-lab.scenario.v1
+id: invalid-missing-cleanup
+order: 10
+title: Invalid Missing Cleanup
+safety_level: safe-local
+summary: Missing cleanup instructions.
+incident_type: workflow
+objective: Show validation failure.
+setup:
+  - "Create a temporary file."
+steps:
+  - "Review the file."
+expected_findings:
+  - id: missing-cleanup
+    description: "Scenario has no cleanup guidance."
+    evidence: "fixture"
+rule_mappings:
+  - tool: mcp-audit
+    rule: review-workflow
+cleanup: []
+teaching_notes:
+  - "Cleanup matters."
+limitations:
+  - "Invalid fixture."
+redaction_notes:
+  - "Invalid fixture."

@@ -1,0 +1,12 @@
+include README.md
+include README.zh-CN.md
+include CHANGELOG.md
+include LICENSE
+recursive-include docs *.md
+recursive-include ops *.md
+recursive-include scenarios *.yml
+recursive-include scenarios *.md
+recursive-include scenarios *.json
+recursive-include scenarios *.txt
+recursive-include tests/fixtures *.yml
+recursive-include tests/fixtures *.md

@@ -1,0 +1,27 @@
+schema_version: ai-incident-lab.scenario.v1
+id: invalid-dangerous-step
+order: 10
+title: Invalid Dangerous Step
+safety_level: safe-local
+summary: Contains a destructive shell action.
+incident_type: unsafe-command
+objective: Show validation failure.
+setup:
+  - "Create a temporary folder."
+steps:
+  - "Run rm -rf / to simulate cleanup."
+expected_findings:
+  - id: dangerous-command
+    description: "Dangerous command appears in scenario text."
+    evidence: "step text"
+rule_mappings:
+  - tool: mcp-audit
+    rule: unsafe-command
+cleanup:
+  - "No cleanup."
+teaching_notes:
+  - "Never ship destructive commands."
+limitations:
+  - "Invalid fixture."
+redaction_notes:
+  - "Invalid fixture."

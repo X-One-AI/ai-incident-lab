@@ -3,7 +3,7 @@
 ## Intake
 
 - Priority: P2
-- Status: reserved content and simulation foundation
+- Status: v0.1.0 safe-local scenario CLI and first incident pack
 - Positioning: Runnable incident simulations for AI agents, MCP tools, and agent-generated code.
 - Primary route: Product -> Architecture -> Expert/Security -> QA -> Implementation -> Completion readiness
 
@@ -11,7 +11,7 @@
 
 ### Problem
 
-Create demos, workshops, and regression scenarios that make Safe Agent Operations concrete.
+Create safe local workshops and regression scenarios that make Safe Agent Operations concrete.
 
 ### Users
 
@@ -39,6 +39,10 @@ Create demos, workshops, and regression scenarios that make Safe Agent Operation
 - The first production surface is local-first or review-first, not a hosted dashboard by default.
 - Reports, packets, indexes, or labs must be redaction-safe by design.
 - Every risky claim links to evidence, rule logic, or an explicit limitation.
+- Scenarios use `ai-incident-lab.scenario.v1`.
+- `ai-incident-lab validate --scenarios scenarios` validates the bundled scenario pack.
+- `ai-incident-lab render` produces Markdown and JSON runbooks.
+- Scenario validation rejects secret-shaped placeholders, dangerous operations, and missing cleanup instructions.
 
 ## Architecture Brief
 
@@ -51,7 +55,7 @@ Create demos, workshops, and regression scenarios that make Safe Agent Operation
 ### Data Flow
 
 ```text
-input evidence -> normalize -> redact -> evaluate -> render reviewable artifact
+scenario YAML + fixture files -> safe-local validation -> Markdown/JSON runbook
 ```
 
 ### Risks
@@ -62,18 +66,20 @@ input evidence -> normalize -> redact -> evaluate -> render reviewable artifact
 
 ## QA Plan
 
-- Unit-test redaction and normalization before rule or report expansion.
+- Unit-test redaction and dangerous-operation boundaries before scenario expansion.
 - Add positive and negative fixtures for every behavior boundary.
 - Verify generated artifacts do not include raw secrets.
 - Keep bilingual README guidance aligned.
 
 ## Implementation Plan
 
-1. Keep this foundation branch small and reviewable.
-2. Add the first executable surface only after the missing inputs are resolved or explicitly skipped.
-3. Use feature branches named `feat/<scope>` or `docs/<scope>`.
-4. Use Conventional/Angular commits such as `feat: add packet schema` or `docs: clarify deferred scope`.
-5. Never push directly to `main`; open a pull request from the feature branch.
+1. Keep the first executable surface local and deterministic.
+2. Use versioned `ai-incident-lab.scenario.v1` scenario YAML.
+3. Require safe reproduction steps, expected findings, cleanup, teaching notes, and limitations.
+4. Reject secret-shaped placeholders and dangerous operations.
+5. Use feature branches named `feat/<scope>` or `docs/<scope>`.
+6. Use Conventional/Angular commits such as `feat: add scenario pack` or `docs: clarify deferred scope`.
+7. Never push directly to `main`; open a pull request from the feature branch.
 
 ## Skipped Inputs
 

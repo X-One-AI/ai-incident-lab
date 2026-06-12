@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xone-ai-incident-lab"
+version = "0.1.0"
+description = "Safe local incident simulations for AI agents, MCP tools, and agent-generated code."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  { name = "X-One-AI" }
+]
+keywords = ["ai", "agents", "mcp", "incident", "devsecops"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Education",
+  "Topic :: Security",
+]
+dependencies = [
+  "PyYAML>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2.2",
+  "pytest>=8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/X-One-AI/ai-incident-lab"
+Repository = "https://github.com/X-One-AI/ai-incident-lab"
+Issues = "https://github.com/X-One-AI/ai-incident-lab/issues"
+
+[project.scripts]
+ai-incident-lab = "ai_incident_lab.cli:entrypoint"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

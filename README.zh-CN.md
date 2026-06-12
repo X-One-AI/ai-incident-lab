@@ -6,15 +6,30 @@
 
 ## 状态
 
-`P2` - reserved content and simulation foundation。
+`v0.1.0` - safe-local 场景 CLI 和第一批事故场景包。
 
 ## 目的
 
-Create demos, workshops, and regression scenarios that make Safe Agent Operations concrete.
+创建安全的本地 workshop 和回归场景，让 Safe Agent Operations 变得具体可练习。
 
 ## 第一生产化表面
 
-Local-only incident scenarios mapped to mcp-audit rules and reviewer lessons.
+本地 incident scenarios：映射到 X-One 工具、预期发现、清理步骤和 reviewer lessons。
+
+```bash
+python3 -m pip install xone-ai-incident-lab
+ai-incident-lab list --scenarios scenarios
+ai-incident-lab validate --scenarios scenarios
+ai-incident-lab render --scenarios scenarios --format markdown --output ai-incident-runbook.md
+ai-incident-lab render --scenarios scenarios --format json --output ai-incident-runbook.json
+```
+
+本地开发：
+
+```bash
+python3 -m pip install -e '.[dev]'
+python3 -m pytest tests -q
+```
 
 ## 必要证据
 
@@ -23,6 +38,10 @@ Local-only incident scenarios mapped to mcp-audit rules and reviewer lessons.
 - expected finding mapping
 - cleanup instructions
 - teaching notes
+
+## Scenario 契约
+
+场景使用 `ai-incident-lab.scenario.v1`，并且必须保持 `safe-local`。它们是 review 练习，不是 exploit kit，也不提供 runtime protection。
 
 ## 非目标
 
@@ -41,6 +60,7 @@ Local-only incident scenarios mapped to mcp-audit rules and reviewer lessons.
 ## 文档
 
 - [产品基础](./docs/product-foundation.md)
+- [Scenario Lab Design](./docs/scenario-lab-design.md)
 - [OPT Overlay](./ops/opt-overlay.md)
 - [生产约束](./ops/constraints/production.md)
 - [主入口约束](./ops/constraints/main-entry.md)
