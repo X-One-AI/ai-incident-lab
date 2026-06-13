@@ -16,7 +16,7 @@ Create safe local workshops and regression scenarios that make Safe Agent Operat
 
 Local-only incident scenarios mapped to X-One tools, expected findings, cleanup steps, and reviewer lessons.
 
-After PyPI publication:
+From PyPI:
 
 ```bash
 python3 -m pip install xone-ai-incident-lab
@@ -27,7 +27,7 @@ ai-incident-lab render --scenarios ai-incident-scenarios --format markdown --out
 ai-incident-lab render --scenarios ai-incident-scenarios --format json --output ai-incident-runbook.json
 ```
 
-After Homebrew tap update:
+From Homebrew:
 
 ```bash
 brew install x-one-ai/tap/ai-incident-lab
@@ -67,6 +67,8 @@ This project references the shared One Person Team workflow through [ops/opt-ove
 ## Blocked Inputs
 
 Inputs that require user or real-world data are recorded in `../x-one-skipped-inputs.md` and should not block foundation work.
+
+Real-user feedback should be classified as false-positive, false-negative, adapter-request, scenario-request, or catalog-update when it applies; portfolio-level handling is tracked in X-One portfolio health docs.
 
 ## Docs
 

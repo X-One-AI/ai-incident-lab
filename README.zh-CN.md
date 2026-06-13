@@ -16,7 +16,7 @@
 
 本地 incident scenarios：映射到 X-One 工具、预期发现、清理步骤和 reviewer lessons。
 
-PyPI 发布后：
+从 PyPI 安装：
 
 ```bash
 python3 -m pip install xone-ai-incident-lab
@@ -27,7 +27,7 @@ ai-incident-lab render --scenarios ai-incident-scenarios --format markdown --out
 ai-incident-lab render --scenarios ai-incident-scenarios --format json --output ai-incident-runbook.json
 ```
 
-Homebrew tap 更新后：
+从 Homebrew 安装：
 
 ```bash
 brew install x-one-ai/tap/ai-incident-lab
@@ -67,6 +67,8 @@ ai-incident-lab validate --scenarios scenarios
 ## 暂缺输入
 
 需要用户或真实世界数据补充的内容记录在 `../x-one-skipped-inputs.md`，不阻塞基础建设。
+
+真实用户反馈在适用时应分类为 false-positive、false-negative、adapter-request、scenario-request 或 catalog-update；组合层面的处理由 X-One portfolio health docs 跟踪。
 
 ## 文档
 
