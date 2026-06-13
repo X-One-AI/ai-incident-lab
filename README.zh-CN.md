@@ -16,6 +16,8 @@
 
 本地 incident scenarios：映射到 X-One 工具、预期发现、清理步骤和 reviewer lessons。
 
+PyPI 发布后：
+
 ```bash
 python3 -m pip install xone-ai-incident-lab
 ai-incident-lab init --output ai-incident-scenarios
@@ -23,6 +25,13 @@ ai-incident-lab list --scenarios ai-incident-scenarios
 ai-incident-lab validate --scenarios ai-incident-scenarios
 ai-incident-lab render --scenarios ai-incident-scenarios --format markdown --output ai-incident-runbook.md
 ai-incident-lab render --scenarios ai-incident-scenarios --format json --output ai-incident-runbook.json
+```
+
+Homebrew tap 更新后：
+
+```bash
+brew install x-one-ai/tap/ai-incident-lab
+ai-incident-lab --version
 ```
 
 本地开发：
@@ -63,6 +72,8 @@ ai-incident-lab validate --scenarios scenarios
 
 - [产品基础](./docs/product-foundation.md)
 - [Scenario Lab Design](./docs/scenario-lab-design.md)
+- [Publishing](./docs/publishing.md)
+- [Homebrew Packaging](./docs/homebrew.md)
 - [OPT Overlay](./ops/opt-overlay.md)
 - [生产约束](./ops/constraints/production.md)
 - [主入口约束](./ops/constraints/main-entry.md)

@@ -16,6 +16,8 @@ Create safe local workshops and regression scenarios that make Safe Agent Operat
 
 Local-only incident scenarios mapped to X-One tools, expected findings, cleanup steps, and reviewer lessons.
 
+After PyPI publication:
+
 ```bash
 python3 -m pip install xone-ai-incident-lab
 ai-incident-lab init --output ai-incident-scenarios
@@ -23,6 +25,13 @@ ai-incident-lab list --scenarios ai-incident-scenarios
 ai-incident-lab validate --scenarios ai-incident-scenarios
 ai-incident-lab render --scenarios ai-incident-scenarios --format markdown --output ai-incident-runbook.md
 ai-incident-lab render --scenarios ai-incident-scenarios --format json --output ai-incident-runbook.json
+```
+
+After Homebrew tap update:
+
+```bash
+brew install x-one-ai/tap/ai-incident-lab
+ai-incident-lab --version
 ```
 
 For local development:
@@ -63,6 +72,8 @@ Inputs that require user or real-world data are recorded in `../x-one-skipped-in
 
 - [Product Foundation](./docs/product-foundation.md)
 - [Scenario Lab Design](./docs/scenario-lab-design.md)
+- [Publishing](./docs/publishing.md)
+- [Homebrew Packaging](./docs/homebrew.md)
 - [OPT Overlay](./ops/opt-overlay.md)
 - [Production Constraints](./ops/constraints/production.md)
 - [Main Entry Constraints](./ops/constraints/main-entry.md)
