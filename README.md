@@ -6,7 +6,7 @@ Runnable incident simulations for AI agents, MCP tools, and agent-generated code
 
 ## Status
 
-`v0.2.0` - safe-local scenario CLI, bundled scenario pack, and first-run init flow.
+`v0.2.1` - safe-local scenario CLI, bundled scenario pack, and first-run init flow.
 
 ## Purpose
 

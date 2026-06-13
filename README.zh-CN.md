@@ -6,7 +6,7 @@
 
 ## 状态
 
-`v0.2.0` - safe-local 场景 CLI、内置场景包和首次使用 init 流程。
+`v0.2.1` - safe-local 场景 CLI、内置场景包和首次使用 init 流程。
 
 ## 目的
 

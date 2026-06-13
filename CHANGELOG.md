@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1
+
+Distribution release.
+
+- Add package publishing workflow and distribution documentation.
+- Prepare a release tag that includes the PyPI/TestPyPI publishing workflow.
+
 ## 0.2.0
 
 - Add `ai-incident-lab init` so installed users can generate the bundled scenario pack.
