@@ -3,7 +3,7 @@
 ## Intake
 
 - Priority: P2
-- Status: v0.2.0 safe-local scenario CLI with bundled init flow
+- Status: v0.2.1 safe-local scenario CLI with bundled init flow
 - Positioning: Runnable incident simulations for AI agents, MCP tools, and agent-generated code.
 - Primary route: Product -> Architecture -> Expert/Security -> QA -> Implementation -> Completion readiness
 

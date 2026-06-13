@@ -43,7 +43,7 @@ Environment: testpypi or pypi
 ## Publish Order
 
 1. Merge and verify a green CI run on `main`.
-2. Confirm the release tag exists, for example `v0.2.0`.
+2. Confirm the release tag exists, for example `v0.2.1`.
 3. Run `Publish Python Package` with `repository = testpypi`.
 4. Verify a clean TestPyPI install.
 5. Run `Publish Python Package` with `repository = pypi` from a release tag after approval.
@@ -71,6 +71,6 @@ python -m venv /tmp/ai-incident-lab-pypi
 ## GitHub Release Install Path
 
 ```bash
-python3 -m pip install https://github.com/X-One-AI/ai-incident-lab/releases/download/v0.2.0/xone_ai_incident_lab-0.2.0-py3-none-any.whl
+python3 -m pip install https://github.com/X-One-AI/ai-incident-lab/releases/download/v0.2.1/xone_ai_incident_lab-0.2.1-py3-none-any.whl
 ai-incident-lab --version
 ```
