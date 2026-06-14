@@ -74,6 +74,7 @@ ai-incident-lab validate --scenarios scenarios
 
 - [产品基础](./docs/product-foundation.md)
 - [Scenario Lab Design](./docs/scenario-lab-design.md)
+- [Core Tool Training Workflow](./docs/core-tool-training-workflow.md)
 - [Publishing](./docs/publishing.md)
 - [Homebrew Packaging](./docs/homebrew.md)
 - [OPT Overlay](./ops/opt-overlay.md)

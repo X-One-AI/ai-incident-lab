@@ -27,3 +27,14 @@ def test_docs_package_and_ci_stay_aligned():
     assert "__version__ = \"0.2.1\"" in Path("src/ai_incident_lab/__init__.py").read_text(encoding="utf-8")
     assert "## 0.2.1" in changelog
     assert "## 0.1.0" in changelog
+
+
+def test_core_tool_training_workflow_is_actionable():
+    workflow = Path("docs/core-tool-training-workflow.md").read_text(encoding="utf-8")
+
+    assert "core tool training path" in workflow
+    assert "mcp-audit" in workflow
+    assert "agent-pr-evidence" in workflow
+    assert "agent-failure-packet" in workflow
+    assert "Support asset, not a primary product" in workflow
+    assert "Product gate" in workflow
