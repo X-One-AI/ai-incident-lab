@@ -19,6 +19,12 @@ Schema: `ai-incident-lab.pack.v1`
 
 - `wide-filesystem-scope`: Filesystem MCP access is broader than the intended project-only review surface.
 
+### Remediation Steps
+
+- Narrow the filesystem scope to the smallest project directory that the reviewer needs.
+- Run `mcp-audit` on the revised config before allowing the server in a team profile.
+- Record the approved path boundary in team policy or project documentation.
+
 ### Cleanup
 
 - Delete `/tmp/ai-incident-lab-wide-scope` if you created it during a workshop.
@@ -51,6 +57,12 @@ Schema: `ai-incident-lab.pack.v1`
 - `missing-test-evidence`: PR summary claims completion without showing a verification command or result.
 - `missing-risk-summary`: PR summary does not mention config, dependency, auth, or CI risk.
 
+### Remediation Steps
+
+- Ask for the exact verification commands and results before merge.
+- Require a short risk note for config, dependency, auth, CI, or release-impacting changes.
+- Use `agent-pr-evidence` to produce a reviewer-facing handoff decision.
+
 ### Cleanup
 
 - No generated files. Close the fixture after review.
@@ -81,6 +93,12 @@ Schema: `ai-incident-lab.pack.v1`
 ### Expected Findings
 
 - `secret-shaped-log-output`: Agent logs can expose credential-shaped values and must be redacted before sharing.
+
+### Remediation Steps
+
+- Generate a redacted packet with `agent-failure-packet` before sharing logs.
+- Replace credential-shaped values with explicit redaction markers.
+- Keep raw logs out of issues, PR comments, fixtures, and public artifacts.
 
 ### Cleanup
 
@@ -116,6 +134,12 @@ Schema: `ai-incident-lab.pack.v1`
 - `failure-packet-boundary`: agent-failure-packet is used only when failure evidence exists.
 - `risk-context-boundary`: mcp-risk-index provides review context, not an allow or deny decision.
 - `missing-test-evidence`: Missing test logs should request test evidence rather than create a failure packet.
+
+### Remediation Steps
+
+- Start with `agent-pr-evidence` to decide whether to continue, request evidence, or block merge.
+- Create an `agent-failure-packet` only when there is concrete failure evidence to hand off.
+- Attach `mcp-risk-index` reviewer questions as context, not as an allow or deny decision.
 
 ### Cleanup
 

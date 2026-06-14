@@ -3,7 +3,7 @@
 ## Intake
 
 - Priority: P2
-- Status: v0.2.1 safe-local scenario CLI with bundled init flow
+- Status: v0.2.2 safe-local scenario CLI with bundled init flow and remediation steps
 - Positioning: Runnable incident simulations for AI agents, MCP tools, and agent-generated code.
 - Primary route: Product -> Architecture -> Expert/Security -> QA -> Implementation -> Completion readiness
 
@@ -24,6 +24,7 @@ Create safe local workshops and regression scenarios that make Safe Agent Operat
 - scenario README
 - safe reproduction steps
 - expected finding mapping
+- remediation steps
 - cleanup instructions
 - teaching notes
 
@@ -43,6 +44,7 @@ Create safe local workshops and regression scenarios that make Safe Agent Operat
 - `ai-incident-lab validate --scenarios scenarios` validates the bundled scenario pack.
 - `ai-incident-lab init --output ai-incident-scenarios` writes a bundled scenario pack for installed users.
 - `ai-incident-lab render` produces Markdown and JSON runbooks.
+- Bundled scenarios include remediation steps so expected findings become concrete follow-up actions.
 - Scenario validation rejects secret-shaped placeholders, dangerous operations, and missing cleanup instructions.
 
 ## Architecture Brief
@@ -76,7 +78,7 @@ scenario YAML + fixture files -> safe-local validation -> Markdown/JSON runbook
 
 1. Keep the first executable surface local and deterministic.
 2. Use versioned `ai-incident-lab.scenario.v1` scenario YAML.
-3. Require safe reproduction steps, expected findings, cleanup, teaching notes, and limitations.
+3. Require safe reproduction steps, expected findings, remediation steps, cleanup, teaching notes, and limitations.
 4. Reject secret-shaped placeholders and dangerous operations.
 5. Use feature branches named `feat/<scope>` or `docs/<scope>`.
 6. Use Conventional/Angular commits such as `feat: add scenario pack` or `docs: clarify deferred scope`.

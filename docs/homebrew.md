@@ -33,5 +33,5 @@ Formula/ai-incident-lab.rb
 ## Current Target
 
 ```text
-xone-ai-incident-lab==0.2.1
+xone-ai-incident-lab==0.2.2
 ```

@@ -33,6 +33,7 @@ Each scenario uses `ai-incident-lab.scenario.v1` and must include:
 - stable `order` for runbook sequencing
 - expected findings
 - mapping to an X-One tool or rule family
+- remediation steps when a finding is confirmed
 - cleanup instructions
 - teaching notes
 - limitations

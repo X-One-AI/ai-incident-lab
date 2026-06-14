@@ -61,6 +61,8 @@ def _validate_scenario(scenario: dict[str, Any], *, seen_ids: set[str]) -> None:
 
     for field in ("setup", "steps", "cleanup", "teaching_notes", "limitations", "redaction_notes"):
         _require_string_list(scenario, field, scenario_id=scenario_id)
+    if "remediation_steps" in scenario:
+        _require_string_list(scenario, "remediation_steps", scenario_id=scenario_id)
 
     if not scenario["cleanup"]:
         raise ScenarioValidationError(f"Scenario {scenario_id} must include cleanup instructions")

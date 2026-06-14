@@ -20,6 +20,10 @@ expected_findings:
   - id: missing-risk-summary
     description: PR summary does not mention config, dependency, auth, or CI risk.
     evidence: fixtures/agent-pr-missing-verification/pr-summary.md
+remediation_steps:
+  - "Ask for the exact verification commands and results before merge."
+  - "Require a short risk note for config, dependency, auth, CI, or release-impacting changes."
+  - "Use `agent-pr-evidence` to produce a reviewer-facing handoff decision."
 rule_mappings:
   - tool: agent-pr-evidence
     rule: verification-evidence-required
