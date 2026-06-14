@@ -50,6 +50,11 @@ def _render_scenario(scenario: dict[str, Any]) -> list[str]:
     for finding in scenario["expected_findings"]:
         lines.append(f"- `{finding['id']}`: {finding['description']}")
 
+    if scenario.get("remediation_steps"):
+        lines.extend(["", "### Remediation Steps", ""])
+        for item in scenario["remediation_steps"]:
+            lines.append(f"- {item}")
+
     lines.extend(["", "### Cleanup", ""])
     for item in scenario["cleanup"]:
         lines.append(f"- {item}")

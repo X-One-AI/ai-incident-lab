@@ -23,6 +23,7 @@ def test_load_scenarios_validates_bundled_pack():
         "agent-evidence-loop",
     ]
     assert all(scenario["safety_level"] == "safe-local" for scenario in scenarios)
+    assert all(scenario["remediation_steps"] for scenario in scenarios)
 
 
 @pytest.mark.parametrize(
@@ -49,6 +50,14 @@ def test_render_json_is_machine_readable():
 
     assert data["schema_version"] == "ai-incident-lab.pack.v1"
     assert data["scenarios"][0]["id"] == "mcp-wide-filesystem-scope"
+    assert data["scenarios"][0]["remediation_steps"]
+
+
+def test_render_markdown_outputs_remediation_steps():
+    markdown = render_markdown(load_scenarios(SCENARIOS))
+
+    assert "### Remediation Steps" in markdown
+    assert "Narrow the filesystem scope" in markdown
 
 
 def test_cli_list_validate_and_render(tmp_path, capsys):
@@ -84,7 +93,7 @@ def test_package_module_entrypoint_outputs_version():
         stdout=subprocess.PIPE,
     )
 
-    assert result.stdout.strip() == "ai-incident-lab 0.2.1"
+    assert result.stdout.strip() == "ai-incident-lab 0.2.2"
 
 
 def test_agent_evidence_loop_scenario_maps_x_one_tools():

@@ -27,6 +27,10 @@ expected_findings:
   - id: missing-test-evidence
     description: Missing test logs should request test evidence rather than create a failure packet.
     evidence: synthetic PR notes
+remediation_steps:
+  - "Start with `agent-pr-evidence` to decide whether to continue, request evidence, or block merge."
+  - "Create an `agent-failure-packet` only when there is concrete failure evidence to hand off."
+  - "Attach `mcp-risk-index` reviewer questions as context, not as an allow or deny decision."
 rule_mappings:
   - tool: agent-pr-evidence
     rule: Handoff Decision

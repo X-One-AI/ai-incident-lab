@@ -13,19 +13,19 @@ def test_docs_package_and_ci_stay_aligned():
     assert "ai-incident-lab validate" in english
     assert "ai-incident-lab init" in english
     assert "ai-incident-lab render" in english
-    assert "v0.2.1" in english
+    assert "v0.2.2" in english
     assert "README.zh-CN.md" in english
     assert "ai-incident-lab validate" in chinese
     assert "ai-incident-lab init" in chinese
     assert "ai-incident-lab render" in chinese
-    assert "v0.2.1" in chinese
+    assert "v0.2.2" in chinese
     assert "README.md" in chinese
     assert "ai-incident-lab.scenario.v1" in foundation
     assert "safe-local" in spec
     assert "python3 -m pytest tests -q" in ci
-    assert 'version = "0.2.1"' in pyproject
-    assert "__version__ = \"0.2.1\"" in Path("src/ai_incident_lab/__init__.py").read_text(encoding="utf-8")
-    assert "## 0.2.1" in changelog
+    assert 'version = "0.2.2"' in pyproject
+    assert "__version__ = \"0.2.2\"" in Path("src/ai_incident_lab/__init__.py").read_text(encoding="utf-8")
+    assert "## 0.2.2" in changelog
     assert "## 0.1.0" in changelog
 
 

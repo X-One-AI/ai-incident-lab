@@ -6,7 +6,7 @@
 
 ## 状态
 
-`v0.2.1` - safe-local 场景 CLI、内置场景包和首次使用 init 流程。
+`v0.2.2` - safe-local 场景 CLI、内置场景包、remediation steps 和首次使用 init 流程。
 
 ## 目的
 
@@ -14,7 +14,7 @@
 
 ## 第一生产化表面
 
-本地 incident scenarios：映射到 X-One 工具、预期发现、清理步骤和 reviewer lessons。
+本地 incident scenarios：映射到 X-One 工具、预期发现、remediation steps、清理步骤和 reviewer lessons。
 
 从 PyPI 安装：
 
@@ -47,6 +47,7 @@ ai-incident-lab validate --scenarios scenarios
 - scenario README
 - safe reproduction steps
 - expected finding mapping
+- remediation steps
 - cleanup instructions
 - teaching notes
 

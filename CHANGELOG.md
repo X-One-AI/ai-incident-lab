@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+- Add remediation steps to bundled safe-local scenarios so expected findings become concrete follow-up actions.
+- Render remediation steps in Markdown runbooks while preserving JSON scenario data.
+- Correct publishing documentation to reflect the existing PyPI and TestPyPI package status.
+
 ## 0.2.1
 
 Distribution release.

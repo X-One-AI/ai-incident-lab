@@ -6,7 +6,7 @@ Runnable incident simulations for AI agents, MCP tools, and agent-generated code
 
 ## Status
 
-`v0.2.1` - safe-local scenario CLI, bundled scenario pack, and first-run init flow.
+`v0.2.2` - safe-local scenario CLI, bundled scenario pack, remediation steps, and first-run init flow.
 
 ## Purpose
 
@@ -14,7 +14,7 @@ Create safe local workshops and regression scenarios that make Safe Agent Operat
 
 ## First Production Surface
 
-Local-only incident scenarios mapped to X-One tools, expected findings, cleanup steps, and reviewer lessons.
+Local-only incident scenarios mapped to X-One tools, expected findings, remediation steps, cleanup steps, and reviewer lessons.
 
 From PyPI:
 
@@ -47,6 +47,7 @@ ai-incident-lab validate --scenarios scenarios
 - scenario README
 - safe reproduction steps
 - expected finding mapping
+- remediation steps
 - cleanup instructions
 - teaching notes
 

@@ -17,6 +17,10 @@ expected_findings:
   - id: wide-filesystem-scope
     description: Filesystem MCP access is broader than the intended project-only review surface.
     evidence: fixtures/mcp-wide-filesystem-scope/mcp.json
+remediation_steps:
+  - "Narrow the filesystem scope to the smallest project directory that the reviewer needs."
+  - "Run `mcp-audit` on the revised config before allowing the server in a team profile."
+  - "Record the approved path boundary in team policy or project documentation."
 rule_mappings:
   - tool: mcp-audit
     rule: filesystem-scope-review
