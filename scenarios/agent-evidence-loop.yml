@@ -1,0 +1,47 @@
+schema_version: ai-incident-lab.scenario.v1
+id: agent-evidence-loop
+order: 40
+title: Agent Evidence Loop Handoff Review
+safety_level: safe-local
+summary: Practice turning PR evidence into a clear handoff decision without executing external tools.
+incident_type: review-handoff
+objective: Identify when a review should continue, request test evidence, create a failure packet, or attach risk context.
+setup:
+  - "Create a local notes file that summarizes a PR with changed workflow files, missing tests, and one redacted failure excerpt."
+  - "Keep all data synthetic and local."
+steps:
+  - "Read the synthetic PR notes and separate evidence from assumptions."
+  - "Choose the most appropriate handoff decision for the evidence."
+  - "Draft the minimum information needed by the next reviewer or maintainer."
+  - "Attach a risk context note only as review context."
+expected_findings:
+  - id: main-review-entrance
+    description: agent-pr-evidence is the main entrance for the review decision.
+    evidence: synthetic PR notes
+  - id: failure-packet-boundary
+    description: agent-failure-packet is used only when failure evidence exists.
+    evidence: redacted failure excerpt
+  - id: risk-context-boundary
+    description: mcp-risk-index provides review context, not an allow or deny decision.
+    evidence: risk context note
+  - id: missing-test-evidence
+    description: Missing test logs should request test evidence rather than create a failure packet.
+    evidence: synthetic PR notes
+rule_mappings:
+  - tool: agent-pr-evidence
+    rule: Handoff Decision
+  - tool: agent-failure-packet
+    rule: PR/CI failure handoff
+  - tool: mcp-risk-index
+    rule: risk context note
+cleanup:
+  - "Delete the synthetic notes file created for the exercise."
+teaching_notes:
+  - "This scenario teaches the evidence loop. It does not execute the other X-One tools."
+  - "Prefer small, explainable handoffs over broad automated actions."
+limitations:
+  - "This exercise does not contact GitHub, CI providers, package registries, or production services."
+  - "It does not prove that a real PR is safe to merge."
+redaction_notes:
+  - "Use only synthetic examples."
+  - "Remove credentials, private paths, hostnames, customer data, and raw failure logs before sharing."
