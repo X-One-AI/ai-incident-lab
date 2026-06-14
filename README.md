@@ -74,6 +74,7 @@ Real-user feedback should be classified as false-positive, false-negative, adapt
 
 - [Product Foundation](./docs/product-foundation.md)
 - [Scenario Lab Design](./docs/scenario-lab-design.md)
+- [Core Tool Training Workflow](./docs/core-tool-training-workflow.md)
 - [Publishing](./docs/publishing.md)
 - [Homebrew Packaging](./docs/homebrew.md)
 - [OPT Overlay](./ops/opt-overlay.md)
