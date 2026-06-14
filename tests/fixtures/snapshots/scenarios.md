@@ -96,6 +96,41 @@ Schema: `ai-incident-lab.pack.v1`
 - This lab does not test a live secret scanner.
 - It is a human review scenario.
 
+## Agent Evidence Loop Handoff Review
+
+- ID: `agent-evidence-loop`
+- Safety level: `safe-local`
+- Incident type: `review-handoff`
+- Objective: Identify when a review should continue, request test evidence, create a failure packet, or attach risk context.
+
+### Steps
+
+1. Read the synthetic PR notes and separate evidence from assumptions.
+2. Choose the most appropriate handoff decision for the evidence.
+3. Draft the minimum information needed by the next reviewer or maintainer.
+4. Attach a risk context note only as review context.
+
+### Expected Findings
+
+- `main-review-entrance`: agent-pr-evidence is the main entrance for the review decision.
+- `failure-packet-boundary`: agent-failure-packet is used only when failure evidence exists.
+- `risk-context-boundary`: mcp-risk-index provides review context, not an allow or deny decision.
+- `missing-test-evidence`: Missing test logs should request test evidence rather than create a failure packet.
+
+### Cleanup
+
+- Delete the synthetic notes file created for the exercise.
+
+### Teaching Notes
+
+- This scenario teaches the evidence loop. It does not execute the other X-One tools.
+- Prefer small, explainable handoffs over broad automated actions.
+
+### Limitations
+
+- This exercise does not contact GitHub, CI providers, package registries, or production services.
+- It does not prove that a real PR is safe to merge.
+
 ## Lab Limitations
 
 - Scenarios are safe local review exercises, not exploit kits.

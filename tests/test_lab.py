@@ -20,6 +20,7 @@ def test_load_scenarios_validates_bundled_pack():
         "mcp-wide-filesystem-scope",
         "agent-pr-missing-verification",
         "agent-log-secret-exposure",
+        "agent-evidence-loop",
     ]
     assert all(scenario["safety_level"] == "safe-local" for scenario in scenarios)
 
@@ -67,7 +68,7 @@ def test_cli_list_validate_and_render(tmp_path, capsys):
     assert list_exit == 0
     assert "mcp-wide-filesystem-scope" in captured.out
     assert validate_exit == 0
-    assert "scenarios=3" in captured.out
+    assert "scenarios=4" in captured.out
     assert markdown_exit == 0
     assert json_exit == 0
     assert "# AI Incident Lab Runbook" in markdown.read_text(encoding="utf-8")
@@ -84,3 +85,14 @@ def test_package_module_entrypoint_outputs_version():
     )
 
     assert result.stdout.strip() == "ai-incident-lab 0.2.1"
+
+
+def test_agent_evidence_loop_scenario_maps_x_one_tools():
+    scenarios = load_scenarios(Path("scenarios"))
+    scenario = next(item for item in scenarios if item["id"] == "agent-evidence-loop")
+    rendered = render_markdown([scenario])
+
+    assert "agent-pr-evidence" in rendered
+    assert "agent-failure-packet" in rendered
+    assert "mcp-risk-index" in rendered
+    assert "This scenario teaches the evidence loop. It does not execute the other X-One tools." in rendered
